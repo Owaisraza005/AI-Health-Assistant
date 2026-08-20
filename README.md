@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # CareVoice AI — AI Health Screening Voice Agent
 
 A voice-first, adaptive AI health-screening assistant. The user has a natural spoken
@@ -195,3 +196,7 @@ sandboxed build environment):
 - Persistent session storage
 - Native PDF report export
 - Additional Indian languages beyond Hindi
+=======
+# AI-Health-Assistant
+AI Health Assistant is an AI-powered multilingual health-screening platform that enables users to interact through voice or text. It conducts adaptive conversations, collects symptoms, duration and severity, detects potentially urgent symptoms, and generates structured health reports using React, Node.js, Express, OpenAI and Web Speech API.
+>>>>>>> 6f5db6f946a2f5b9df38a47e8db0e34507590471
