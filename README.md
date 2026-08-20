@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # CareVoice AI — AI Health Screening Voice Agent
 
 A voice-first, adaptive AI health-screening assistant. The user has a natural spoken
