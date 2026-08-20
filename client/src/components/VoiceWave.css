@@ -1,0 +1,50 @@
+.voicewave {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  height: 40px;
+}
+
+.voicewave__bar {
+  width: 4px;
+  border-radius: var(--radius-full);
+  background: var(--accent);
+  height: 10px;
+  animation: waveIdle 2.4s ease-in-out infinite;
+  animation-delay: calc(var(--i) * 0.09s);
+  transition: background 0.3s ease;
+}
+
+.voicewave--idle .voicewave__bar {
+  background: var(--text-muted);
+  animation: waveIdle 3.2s ease-in-out infinite;
+  animation-delay: calc(var(--i) * 0.12s);
+}
+
+.voicewave--listening .voicewave__bar {
+  background: var(--accent-2);
+  animation: waveListening 0.9s ease-in-out infinite;
+  animation-delay: calc(var(--i) * 0.07s);
+}
+
+.voicewave--speaking .voicewave__bar {
+  background: var(--accent);
+  animation: waveSpeaking 0.7s ease-in-out infinite;
+  animation-delay: calc(var(--i) * 0.06s);
+}
+
+@keyframes waveIdle {
+  0%, 100% { height: 8px; opacity: 0.5; }
+  50% { height: 16px; opacity: 0.8; }
+}
+
+@keyframes waveListening {
+  0%, 100% { height: 10px; }
+  50% { height: 34px; }
+}
+
+@keyframes waveSpeaking {
+  0%, 100% { height: 14px; }
+  50% { height: 40px; }
+}

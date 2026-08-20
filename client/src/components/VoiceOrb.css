@@ -1,0 +1,104 @@
+.orb {
+  position: relative;
+  width: 160px;
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.orb__core {
+  position: relative;
+  z-index: 2;
+  width: 92px;
+  height: 92px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(160deg, #172242, #0e1526);
+  border: 1px solid var(--border-strong);
+  color: var(--accent);
+  box-shadow: 0 0 0 1px rgba(124, 156, 255, 0.08), 0 20px 50px rgba(4, 8, 20, 0.5);
+  transition: color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.orb__ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1.5px solid var(--accent);
+  opacity: 0.35;
+}
+
+.orb__ring--outer {
+  inset: 0;
+  animation: softPulse 3.6s ease-in-out infinite;
+}
+
+.orb__ring--mid {
+  inset: 18px;
+  animation: softPulse 3.6s ease-in-out infinite 0.4s;
+}
+
+/* Idle: slow subtle glow */
+.orb--idle .orb__ring {
+  animation-duration: 4.5s;
+  opacity: 0.22;
+}
+
+/* Listening: more active pulse, teal accent */
+.orb--listening .orb__ring {
+  border-color: var(--accent-2);
+  animation-duration: 1.4s;
+  opacity: 0.5;
+}
+.orb--listening .orb__core {
+  color: var(--accent-2);
+  box-shadow: 0 0 0 1px rgba(70, 214, 163, 0.15), 0 0 50px rgba(70, 214, 163, 0.25);
+}
+
+/* Processing: rotating ring */
+.orb--processing .orb__ring--outer {
+  animation: spin 1.6s linear infinite;
+  border-style: dashed;
+  opacity: 0.55;
+}
+.orb--processing .orb__ring--mid {
+  animation: spin 2.4s linear infinite reverse;
+  opacity: 0.35;
+}
+
+/* Speaking: energetic waveform-like pulse */
+.orb--speaking .orb__ring {
+  animation-duration: 0.9s;
+  opacity: 0.6;
+}
+.orb--speaking .orb__core {
+  box-shadow: 0 0 0 1px rgba(124, 156, 255, 0.2), 0 0 60px rgba(124, 156, 255, 0.4);
+}
+
+/* Error state */
+.orb--error .orb__ring {
+  border-color: var(--error);
+  opacity: 0.5;
+  animation: softPulse 1.6s ease-in-out infinite;
+}
+.orb--error .orb__core {
+  color: var(--error);
+  box-shadow: 0 0 0 1px rgba(255, 107, 122, 0.2), 0 0 50px rgba(255, 107, 122, 0.3);
+}
+
+@media (max-width: 480px) {
+  .orb {
+    width: 128px;
+    height: 128px;
+  }
+  .orb__core {
+    width: 76px;
+    height: 76px;
+  }
+  .orb__ring--mid {
+    inset: 14px;
+  }
+}
